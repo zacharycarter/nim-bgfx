@@ -66,7 +66,7 @@ elif defined(BGFX_BUILD_LIB) or not defined(BGFX_DYNAMIC_LIB) or not defined(BGF
         {.passC: "-DNDEBUG".}
     else:
         {.passC: "-D_DEBUG -DBGFX_CONFIG_DEBUG=1".}
-    {.passC: "-I/usr/local/include -DBX_CONFIG_ENABLE_MSVC_LEVEL4_WARNINGS=1 -D__STDC_LIMIT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_CONSTANT_MACROS".}
+    {.passC: "-I/usr/local/include -DBGFX_CONFIG_MULTITHREADED=0 -DBX_CONFIG_ENABLE_MSVC_LEVEL4_WARNINGS=1 -D__STDC_LIMIT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_CONSTANT_MACROS".}
     {.passL: "-lstdc++".} 
     when defined(linux):
         {.passC: "-std=c++11".} 
