@@ -3,5 +3,11 @@
 *.dll
 *.bak
 *.so
+*.a
 *.dylib
+<<<<<<< HEAD
+*.so.*
+=======
+*.a
+>>>>>>> 447c676b4a961a33aa3e5d08db914c8eb741e03a
 HelloWorld

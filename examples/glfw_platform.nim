@@ -1,11 +1,11 @@
 # Copyright 2017 Cory Noll Crimmins - Golden
 # License: BSD-2
-# Helper functions for platform related code
+# Helper functions for glfw platform related code
 
 {.deadCodeElim: on.}
 
 import glfw3 as glfw
-import bgfx, bgfxplatform
+import bgfx, bgfx_platform
 import strutils
 
 when defined(Windows):
@@ -19,6 +19,9 @@ elif defined(Linux) or
     defined(Solaris) or
     defined(QNX):
     import glfw3native.X11 as glfwn
+
+proc GetTime*(): float64 =
+    return cast[float64](glfw.GetTime())
 
 proc GLFWErrorCB(errorCode: cint; description: cstring) {.cdecl.} =
     debugEcho "[GLFW3] error: $1, $2".format(errorCode, description)
@@ -66,7 +69,7 @@ proc StartExample*[Example]() =
 
     LinkGLFW3WithBGFX(window)
 
-    app.Init()
+    app.Start()
 
     while true:
         glfw.PollEvents()
